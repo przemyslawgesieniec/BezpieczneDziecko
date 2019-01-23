@@ -2,12 +2,13 @@
 #include <MFRC522.h>
 
 #define SS_PIN 10
-#define RST_PIN 2
+#define RST_PIN 9
 MFRC522 rfid(SS_PIN, RST_PIN);
 MFRC522::MIFARE_Key key;
 
 void setup() {
   Serial.begin(9600);
+//  Serial1.begin(9600);
   SPI.begin();
   rfid.PCD_Init();
 }
