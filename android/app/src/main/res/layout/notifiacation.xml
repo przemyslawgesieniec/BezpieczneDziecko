@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.example.bezpiecznedziecko.MainActivity"
+        android:id="@+id/firstReminderToMe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:background="@drawable/notification_background"
+        android:layout_margin="5dp"
+        android:padding="10px">
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.4"
+        android:src="@drawable/go_out_from_school"
+        android:visibility="visible"
+        android:scaleType="centerInside"
+        android:clickable="true" />
+    <TextView
+    android:layout_weight="1.2"
+    android:id="@+id/notificationContent"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="20dp"
+    android:hint="Twoje dziecko opuściło szkołę!"
+    android:textColor="#1B1414"
+    android:textSize="20dp"
+    />
+
+    <TextView
+        android:layout_weight="0.4"
+        android:id="@+id/notificationArriveTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:hint="10:00"
+        android:textColor="#1B1414"
+        android:textSize="20dp"
+        />
+
+
+    <!--<Button-->
+        <!--android:id="@+id/delete"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_weight="0.50"-->
+        <!--android:text="DEFAULT"-->
+        <!--android:textSize="13dp"-->
+        <!--android:textStyle="italic"/>-->
+    </LinearLayout>

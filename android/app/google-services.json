@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1059696674506",
+    "firebase_url": "https://bezpiecznedziecko-69817.firebaseio.com",
+    "project_id": "bezpiecznedziecko-69817",
+    "storage_bucket": "bezpiecznedziecko-69817.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059696674506:android:159a72110152a408",
+        "android_client_info": {
+          "package_name": "com.example.bezpiecznedziecko"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059696674506-s84e23tlvtkgeem1t9o6nfpjj99tpv4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaY4lQYtb4ryi9ZX_T4YFt0tnVI-p397c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

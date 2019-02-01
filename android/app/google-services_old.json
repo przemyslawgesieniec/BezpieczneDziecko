@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "656197322676",
+    "firebase_url": "https://bezpiecznedziecko-2d399.firebaseio.com",
+    "project_id": "bezpiecznedziecko-2d399",
+    "storage_bucket": "bezpiecznedziecko-2d399.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:656197322676:android:159a72110152a408",
+        "android_client_info": {
+          "package_name": "com.example.bezpiecznedziecko"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "656197322676-le116jgnf2edolflefki8vde1eoatjgd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bezpiecznedziecko",
+            "certificate_hash": "91d46100ba709b5ff1df3395b818602817d7deec"
+          }
+        },
+        {
+          "client_id": "656197322676-145ne0766dsgvku4u9lsvu1jio807lh1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKVwZaPqMvk7VaRKLJe3kHN2nhSDu1G9U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "656197322676-145ne0766dsgvku4u9lsvu1jio807lh1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
