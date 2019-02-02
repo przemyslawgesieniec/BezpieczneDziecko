@@ -12,13 +12,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
+import pl.project.saveKid.Dto.UserDto;
+import pl.project.saveKid.service.UserService;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 @Controller
-public class ArduinoRFIDController
-{
+public class ArduinoRFIDController {
     @Value("${firebase.token}")
     private String token;
 
@@ -28,26 +29,29 @@ public class ArduinoRFIDController
     @Autowired
     private FirebaseMessaging firebaseMessaging;
 
+    @Autowired
+    private UserService userService;
+
     @GetMapping("/get/{rfidId}")
-    public @ResponseBody ResponseEntity<String> getRFID(@PathVariable String rfidId) throws FirebaseMessagingException
-    {
-        String send = firebaseMessaging.send(prepareMessage());
-
-        System.out.println(rfidId);
-
-        return new ResponseEntity<>("GET Response", HttpStatus.OK);
+    public @ResponseBody
+    ResponseEntity<String> getRFID(@PathVariable String rfidId) throws FirebaseMessagingException {
+        UserDto userDto = userService.userPassedTheGate(rfidId);
+        firebaseMessaging.send(prepareMessage(userDto));
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    private Message prepareMessage()
-    {
+    private Message prepareMessage(UserDto userDto) {
+        String msg = userDto.getState() ? "Your child has just entered the school" : "Your child has just left the school";
+
+        System.out.println(msg + ": RFID: {" + userDto.getRfid() + "}\n");
+
         return Message
                 .builder()
                 .setToken(this.token)
                 .putData("type", "common_msg")
-                .putData("content", "Your child has just entered the school")
+                .putData("content", msg)
                 .putData("sendTime", new SimpleDateFormat("HH:mm").format(Calendar.getInstance().getTime()))
-                .setNotification(new Notification("Notification", "Your child has just entered the school"))
-                .build()
-        ;
+                .setNotification(new Notification("Notification", msg))
+                .build();
     }
 }
