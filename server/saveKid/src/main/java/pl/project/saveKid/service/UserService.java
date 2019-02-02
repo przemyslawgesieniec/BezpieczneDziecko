@@ -10,10 +10,10 @@ import pl.project.saveKid.repository.UserRepository;
 public class UserService {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
-    public UserDto userPassedTheGate(String rfid){
-
+    public UserDto userPassedTheGate(String rfid)
+    {
         User user = userRepository.findUserByRfid(rfid);
         user.setState(!user.getState());
         userRepository.save(user);

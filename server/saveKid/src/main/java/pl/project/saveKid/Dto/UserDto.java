@@ -5,13 +5,9 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class UserDto {
-
+public class UserDto
+{
     private String rfid;
+    private String firebaseToken;
     private Boolean state;
-
-    public UserDto(String rfid, Boolean state) {
-        this.rfid = rfid;
-        this.state = state;
-    }
 }

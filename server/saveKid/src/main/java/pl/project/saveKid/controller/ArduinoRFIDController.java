@@ -19,13 +19,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 @Controller
-public class ArduinoRFIDController {
-    @Value("${firebase.token}")
-    private String token;
-
-    @Value("${firebase.auth_key}")
-    private String authKey;
-
+public class ArduinoRFIDController
+{
     @Autowired
     private FirebaseMessaging firebaseMessaging;
 
@@ -33,21 +28,22 @@ public class ArduinoRFIDController {
     private UserService userService;
 
     @GetMapping("/get/{rfidId}")
-    public @ResponseBody
-    ResponseEntity<String> getRFID(@PathVariable String rfidId) throws FirebaseMessagingException {
+    public @ResponseBody ResponseEntity<String> getRFID(@PathVariable String rfidId) throws FirebaseMessagingException
+    {
         UserDto userDto = userService.userPassedTheGate(rfidId);
         firebaseMessaging.send(prepareMessage(userDto));
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    private Message prepareMessage(UserDto userDto) {
+    private Message prepareMessage(UserDto userDto)
+    {
         String msg = userDto.getState() ? "Your child has just entered the school" : "Your child has just left the school";
 
-        System.out.println(msg + ": RFID: {" + userDto.getRfid() + "}\n");
+        System.out.println(msg + ": RFID: { " + userDto.getRfid() + " }\n");
 
         return Message
                 .builder()
-                .setToken(this.token)
+                .setToken(userDto.getFirebaseToken())
                 .putData("type", "common_msg")
                 .putData("content", msg)
                 .putData("sendTime", new SimpleDateFormat("HH:mm").format(Calendar.getInstance().getTime()))
