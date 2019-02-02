@@ -1,13 +1,16 @@
 package com.example.bezpiecznedziecko;
 
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.IBinder;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.util.HashSet;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;

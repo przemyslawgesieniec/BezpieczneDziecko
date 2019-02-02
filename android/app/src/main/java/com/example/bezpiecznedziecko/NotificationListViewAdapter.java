@@ -50,6 +50,16 @@ public class NotificationListViewAdapter extends ArrayAdapter<Notification> {
         TextView textView = notification.findViewById(R.id.notificationContent);
         textView.setText(notificationObject.content);
 
+        ImageView statusIcon = notification.findViewById(R.id.icon);
+        if (notificationObject.content.contains("entered"))
+        {
+            statusIcon.setImageResource(R.drawable.go_into_school);
+        }
+        else if (notificationObject.content.contains("left"))
+        {
+            statusIcon.setImageResource(R.drawable.go_out_from_school);
+        }
+
         TextView notificationArriveTimeTextView = notification.findViewById(R.id.notificationArriveTime);
 
         notificationArriveTimeTextView.setText(notificationObject.sendTime);
